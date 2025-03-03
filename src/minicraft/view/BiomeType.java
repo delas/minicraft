@@ -2,7 +2,8 @@ package minicraft.view;
 
 public enum BiomeType {
     GRASS("grass.png", true),
-    WATER("water.png", false);
+    WATER("water.png", true),
+    STONE("stone.png", false);
 
     private String pictureFile;
     private boolean walkable;

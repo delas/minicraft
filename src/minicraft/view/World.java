@@ -61,9 +61,12 @@ public class World extends JPanel {
     }
 
     private BiomeType getRandomBiomeType(int row, int col) {
-        int waterBorder = 2;
-        if (row < waterBorder || col < waterBorder || row >= rows-waterBorder || col >= cols-waterBorder) {
+        Random rnd = new Random();
+        if (rnd.nextDouble() < 0.05) {
             return BiomeType.WATER;
+        }
+        if (rnd.nextDouble() < 0.15) {
+            return BiomeType.STONE;
         }
         return BiomeType.GRASS;
     }
@@ -79,7 +82,7 @@ public class World extends JPanel {
     }
 
     public boolean isTileWalkable(int x, int y) {
-        if (x > 0 && y > 0 && x < cols && y < rows) {
+        if (x >= 0 && y >= 0 && x < cols && y < rows) {
             return world[y][x].isWalkable();
         }
         return false;
