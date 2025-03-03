@@ -30,29 +30,29 @@ public class Player {
     public void moveNorth() {
         if (world.isTileWalkable(x, y - 1)) {
             y = Math.max(0, y - 1);
-            direction = CardinalPoints.N;
         }
+        direction = CardinalPoints.N;
     }
 
     public void moveSouth() {
         if (world.isTileWalkable(x, y + 1)) {
             y++;
-            direction = CardinalPoints.S;
         }
+        direction = CardinalPoints.S;
     }
 
     public void moveEast() {
         if (world.isTileWalkable(x + 1, y)) {
             x++;
-            direction = CardinalPoints.E;
         }
+        direction = CardinalPoints.E;
     }
 
     public void moveWest() {
         if (world.isTileWalkable(x - 1, y)) {
             x = Math.max(0, x - 1);
-            direction = CardinalPoints.W;
         }
+        direction = CardinalPoints.W;
     }
 
     public BufferedImage getImagePlayer() {
