@@ -20,12 +20,7 @@ public class Tile extends JPanel {
         super(true);
 
         this.world = world;
-        this.type = biomeType;
-        try {
-            this.image = ImageIO.read(getClass().getClassLoader().getResourceAsStream(this.type.getPictureFile()));
-        } catch (IOException e) {
-            this.image = new BufferedImage(1, 1, BufferedImage.TYPE_INT_RGB);
-        }
+        setBiomeType(biomeType);
         setMinimumSize(new Dimension(PIXEL_SIZE, PIXEL_SIZE));
         setMaximumSize(getMinimumSize());
         setPreferredSize(getMinimumSize());
@@ -44,8 +39,22 @@ public class Tile extends JPanel {
         }
     }
 
+    public BiomeType getBiomeType() {
+        return type;
+    }
+
     public boolean isWalkable() {
         return type.isWalkable();
+    }
+
+    public void setBiomeType(BiomeType type) {
+        this.type = type;
+        try {
+            this.image = ImageIO.read(getClass().getClassLoader().getResourceAsStream(this.type.getPictureFile()));
+        } catch (IOException e) {
+            this.image = new BufferedImage(1, 1, BufferedImage.TYPE_INT_RGB);
+        }
+        repaint();
     }
 
     public void setContainsPlayer(boolean containsPlayer) {

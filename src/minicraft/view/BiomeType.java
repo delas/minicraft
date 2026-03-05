@@ -2,6 +2,7 @@ package minicraft.view;
 
 public enum BiomeType {
     GRASS("grass.png", true),
+    SAND("sand.png", true),
     WATER("water.png", true),
     STONE("stone.png", false);
 
